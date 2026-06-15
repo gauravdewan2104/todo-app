@@ -9,7 +9,7 @@ const SUPABASE_KEY = 'sb_publishable_JeHRddt9H4dtgeUxKGLUFQ_e5JUOk4j'
 // The URL Supabase redirects back to after a successful Google login.
 // Must match one of the "Redirect URLs" you add in your Supabase dashboard
 // under Authentication → URL Configuration.
-const SITE_URL = '<I will paste my live app URL here>'
+const SITE_URL = 'https://gauravdewan2104.github.io/todo-app'
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY)
 
