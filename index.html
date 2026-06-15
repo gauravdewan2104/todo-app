@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="card">
+    <h1>My To-Do List</h1>
+
+    <!-- Input area: text field + add button -->
+    <div class="input-row">
+      <input
+        type="text"
+        id="task-input"
+        placeholder="What needs doing?"
+        autocomplete="off"
+      />
+      <button id="add-btn">Add</button>
+    </div>
+
+    <!-- Counter: shows how many tasks are still undone -->
+    <p id="counter" class="counter"></p>
+
+    <!-- Task list: populated by JavaScript -->
+    <ul id="task-list"></ul>
+
+    <!-- Empty state: shown when there are no tasks -->
+    <p id="empty-msg" class="empty-msg">No tasks yet</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

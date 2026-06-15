@@ -1,0 +1,9 @@
+# macOS metadata files created by Finder
+.DS_Store
+
+# Windows thumbnail cache
+Thumbs.db
+
+# Editor scratch files
+*.swp
+*.swo

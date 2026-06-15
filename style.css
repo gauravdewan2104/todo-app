@@ -1,0 +1,149 @@
+/* ── Reset & base ─────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f2f5;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #1a1a2e;
+}
+
+/* ── Card container ───────────────────────────────────── */
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  width: 100%;
+  max-width: 480px;
+}
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: #1a1a2e;
+}
+
+/* ── Input row ────────────────────────────────────────── */
+.input-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.input-row input {
+  flex: 1;
+  padding: 0.6rem 0.9rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input-row input:focus {
+  border-color: #6c63ff;
+}
+
+.input-row button {
+  padding: 0.6rem 1.1rem;
+  background: #6c63ff;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.input-row button:hover {
+  background: #574fd6;
+}
+
+/* ── Counter ──────────────────────────────────────────── */
+.counter {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 1rem;
+  min-height: 1.2em; /* prevents layout shift when text appears/disappears */
+}
+
+/* ── Task list ────────────────────────────────────────── */
+ul#task-list {
+  list-style: none;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.65rem 0.5rem;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.15s;
+}
+
+.task-item:last-child {
+  border-bottom: none;
+}
+
+.task-item:hover {
+  background: #fafafa;
+  border-radius: 8px;
+}
+
+/* Checkbox */
+.task-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #6c63ff;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Task label */
+.task-label {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.4;
+  transition: color 0.2s;
+}
+
+/* Done state: strikethrough + faded */
+.task-item.done .task-label {
+  text-decoration: line-through;
+  color: #b0b0b0;
+}
+
+/* Delete button */
+.delete-btn {
+  background: none;
+  border: none;
+  color: #ccc;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 0.25rem;
+  line-height: 1;
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+
+.delete-btn:hover {
+  color: #e53e3e;
+}
+
+/* ── Empty state ──────────────────────────────────────── */
+.empty-msg {
+  text-align: center;
+  color: #c0c0c0;
+  font-size: 0.95rem;
+  padding: 1.5rem 0 0.5rem;
+}
