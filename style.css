@@ -232,6 +232,44 @@ ul#task-list {
   color: #888;
   min-height: 1.2em;
   text-align: center;
+  margin-bottom: 0.25rem;
+}
+
+/* "or" divider between email/password and Google button */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0.75rem 0;
+  color: #ccc;
+  font-size: 0.8rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e0e0e0;
+}
+
+/* Google OAuth button */
+.btn-google {
+  width: 100%;
+  padding: 0.65rem;
+  background: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.btn-google:hover {
+  border-color: #6c63ff;
+  background: #f9f9ff;
 }
 
 /* ── User bar (shown when logged in) ─────────────────── */

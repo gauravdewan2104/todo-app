@@ -6,6 +6,11 @@ import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js
 const SUPABASE_URL = 'https://pettsbkyhcbgavjnibhz.supabase.co'
 const SUPABASE_KEY = 'sb_publishable_JeHRddt9H4dtgeUxKGLUFQ_e5JUOk4j'
 
+// The URL Supabase redirects back to after a successful Google login.
+// Must match one of the "Redirect URLs" you add in your Supabase dashboard
+// under Authentication → URL Configuration.
+const SITE_URL = '<I will paste my live app URL here>'
+
 const supabase = createClient(SUPABASE_URL, SUPABASE_KEY)
 
 // ─────────────────────────────────────────────────────────
@@ -17,6 +22,7 @@ const authEmail    = document.getElementById('auth-email')
 const authPassword = document.getElementById('auth-password')
 const loginBtn     = document.getElementById('login-btn')
 const signupBtn    = document.getElementById('signup-btn')
+const googleBtn    = document.getElementById('google-btn')
 const authMsg      = document.getElementById('auth-msg')
 
 // ─────────────────────────────────────────────────────────
@@ -114,6 +120,19 @@ async function signIn() {
     // On success we do NOT manually call showAppScreen here —
     // onAuthStateChange fires automatically and calls handleAuthState for us.
   }
+}
+
+// Redirect the browser to Google's login page.
+// When Google is done authenticating the user, it redirects back to
+// SITE_URL. Supabase intercepts that redirect, exchanges the code for
+// a session, then fires onAuthStateChange — which calls handleAuthState,
+// which calls showAppScreen. No extra code needed here to handle the return.
+async function signInWithGoogle() {
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider: 'google',
+    options: { redirectTo: SITE_URL },
+  })
+  if (error) setAuthMsg(error.message, true)
 }
 
 // End the current session on Supabase's servers and locally.
@@ -270,6 +289,7 @@ async function deleteTask(id) {
 // ─────────────────────────────────────────────────────────
 loginBtn.addEventListener('click', signIn)
 signupBtn.addEventListener('click', signUp)
+googleBtn.addEventListener('click', signInWithGoogle)
 logoutBtn.addEventListener('click', signOut)
 
 addBtn.addEventListener('click', addTask)
