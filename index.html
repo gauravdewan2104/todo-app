@@ -25,6 +25,9 @@
     <!-- Counter: shows how many tasks are still undone -->
     <p id="counter" class="counter"></p>
 
+    <!-- Error banner: shown when the database can't be reached -->
+    <p id="error-msg" class="error-msg">Couldn't reach the database</p>
+
     <!-- Task list: populated by JavaScript -->
     <ul id="task-list"></ul>
 
@@ -32,6 +35,6 @@
     <p id="empty-msg" class="empty-msg">No tasks yet</p>
   </div>
 
-  <script src="script.js"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>

@@ -140,6 +140,14 @@ ul#task-list {
   color: #e53e3e;
 }
 
+/* ── Error banner ─────────────────────────────────────── */
+.error-msg {
+  display: none; /* shown via JS when a DB call fails */
+  color: #e53e3e;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
 /* ── Empty state ──────────────────────────────────────── */
 .empty-msg {
   text-align: center;
