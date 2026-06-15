@@ -8,31 +8,61 @@
 </head>
 <body>
 
-  <div class="card">
-    <h1>My To-Do List</h1>
+  <!-- ── AUTH SCREEN ──────────────────────────────────────
+       Shown when no user is logged in. Hidden by JS once a
+       session is detected. -->
+  <div id="auth-screen">
+    <div class="card">
+      <h1>My To-Do List</h1>
+      <p class="auth-subtitle">Sign in to see your tasks</p>
 
-    <!-- Input area: text field + add button -->
-    <div class="input-row">
-      <input
-        type="text"
-        id="task-input"
-        placeholder="What needs doing?"
-        autocomplete="off"
-      />
-      <button id="add-btn">Add</button>
+      <!-- Email and password fields shared by both login and signup -->
+      <div class="auth-fields">
+        <input type="email"    id="auth-email"    placeholder="Email"    autocomplete="email" />
+        <input type="password" id="auth-password" placeholder="Password" autocomplete="current-password" />
+      </div>
+
+      <!-- Two separate buttons for the two actions -->
+      <div class="auth-buttons">
+        <button id="login-btn">Log in</button>
+        <button id="signup-btn" class="btn-secondary">Sign up</button>
+      </div>
+
+      <!-- Feedback area: shows errors or success messages -->
+      <p id="auth-msg" class="auth-msg"></p>
     </div>
+  </div>
 
-    <!-- Counter: shows how many tasks are still undone -->
-    <p id="counter" class="counter"></p>
+  <!-- ── APP SCREEN ───────────────────────────────────────
+       Shown only when a user is logged in. Hidden initially. -->
+  <div id="app-screen">
+    <div class="card">
 
-    <!-- Error banner: shown when the database can't be reached -->
-    <p id="error-msg" class="error-msg">Couldn't reach the database</p>
+      <!-- User bar: logged-in email on the left, log out on the right -->
+      <div class="user-bar">
+        <span id="user-email" class="user-email"></span>
+        <button id="logout-btn">Log out</button>
+      </div>
 
-    <!-- Task list: populated by JavaScript -->
-    <ul id="task-list"></ul>
+      <h1>My To-Do List</h1>
 
-    <!-- Empty state: shown when there are no tasks -->
-    <p id="empty-msg" class="empty-msg">No tasks yet</p>
+      <!-- Input area: unchanged from before -->
+      <div class="input-row">
+        <input
+          type="text"
+          id="task-input"
+          placeholder="What needs doing?"
+          autocomplete="off"
+        />
+        <button id="add-btn">Add</button>
+      </div>
+
+      <p id="counter" class="counter"></p>
+      <p id="error-msg" class="error-msg">Couldn't reach the database</p>
+      <ul id="task-list"></ul>
+      <p id="empty-msg" class="empty-msg">No tasks yet</p>
+
+    </div>
   </div>
 
   <script type="module" src="script.js"></script>
